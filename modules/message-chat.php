@@ -1,0 +1,64 @@
+<!-- Это файл для вывода чатов -->
+<!-- Создаем блок с сообщениями -->
+
+<div id="messages"> 
+	<ul>
+		<?php 
+			if(isset($_GET["user_chat"])){
+				$sqlMessage = "SELECT * FROM messages WHERE " .
+				"(user_id = " . $_GET["user_chat"] . " AND user_id_2 = " . $_COOKIE["user_id"] . ") OR " . 
+				"(user_id = " . $_COOKIE["user_id"] . " AND user_id_2 = " . $_GET["user_chat"] . ")";
+				$resultMessage = mysqli_query($connect, $sqlMessage);
+				$quanityMessages = mysqli_num_rows($resultMessage);
+				if($quanityMessages != 0){
+					$i = 0;
+					while($i < $quanityMessages){ // Проходимся по массиву сообщений до конца
+						$message = mysqli_fetch_assoc($resultMessage);
+						echo "<li>";
+						$findUserSql = "SELECT * FROM contacts WHERE id = " . $message["user_id"];
+						$findResult = mysqli_query($connect, $findUserSql);
+						$foundUser = mysqli_fetch_assoc($findResult);
+						echo "<a href='index.php?user=" . $message["user_id"] . "'><div class=\"avatar\"> 
+									<img src='" . $foundUser["avatar"] . "' alt=\"user\">
+								</div></a>";
+						echo "<div id=\"infos-chat\">";
+							echo "<h2>" . $foundUser["name"] . "</h2>"; //Помещаем имя пользователя с полученого массива персоны
+							echo "<p>" . $message["message"] . "</p>"; //Помещаем сообщение с истории
+						echo "</div>";
+						echo "<div class=\"time\">" . $message["time"] . "</div>";
+						echo "</li>";
+						$i += 1;
+					}
+				}else {
+					echo "<h2 class=\"chose-contact\">Нет сообщений.</h2>";
+				}
+			}elseif(isset($_GET["find"])){
+				$findMessage = "SELECT * FROM messages WHERE message LIKE '%" . $_GET["find"] . "%'";
+				$resultFindMessage = mysqli_query($connect, $findMessage);
+				$quantityFind = mysqli_num_rows($resultFindMessage);
+				if($quantityFind > 0){
+					for($i = 0; $i < $quantityFind; $i++){
+						$foundMessage = mysqli_fetch_assoc($resultFindMessage);
+						echo "<li>";
+						$findUserSql = "SELECT * FROM contacts WHERE id = " . $foundMessage["user_id"];
+						$findResult = mysqli_query($connect, $findUserSql);
+						$foundUser = mysqli_fetch_assoc($findResult);
+						echo "<a href='index.php?user=" . $message["user_id"] . "'><div class=\"avatar\">;
+									<img src='" . $foundUser["avatar"] . "' alt=\"user\">
+								</div></a>";
+						echo "<div id=\"infos-chat\">";
+							echo "<h2>" . $foundUser["name"] . "</h2>"; //Помещаем имя пользователя с полученого массива персоны
+							echo "<p>" . $foundMessage["message"] . "</p>"; //Помещаем сообщение с истории
+						echo "</div>";
+						echo "<div class=\"time\">" . $foundMessage["time"] . "</div>";
+						echo "</li>";
+					}
+				}else{
+					echo "<h2 class=\"chose-contact\">Сообщений не найдено.</h2>";
+				}
+			}else{ //Запросов ГЕТ не существует. значит чат еще нужно выбрать
+				echo "<h2 class=\"chose-contact\">Чат не выбран. Выберете пользователя со списка контактов...</h2>";
+			}
+		?>
+	</ul>
+</div>

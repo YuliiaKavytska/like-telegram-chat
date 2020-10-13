@@ -1,0 +1,768 @@
+/* ===============================
+Общие стили
+=============================== */
+
+/*Обнуление ко всем элементам*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* Подсчет ширины блока */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Убираем линии обводки в браузерах */
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+/* Делаем эллементы блочными */
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+/* Уравнивание шрифтов и эллементов в разных браузерах. Например увеличение шрифта на айфоне */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+/* Наследовть семейство шрифта. По умолчанию они этого не делают */
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+textarea {
+  resize: none;
+}
+/* Особенности в разных браузерах. Крестик в инпутах. Отступы конопок. И обнуление списков */
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+/* Сбрасываем стили заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+/*Обнуление ко всем элементам*/
+
+body {
+  background: url(../images/bg2.jpg);
+}
+/* ============================================================================= */
+
+/* =========================== */
+/* Скролл */
+#chat-list::-webkit-scrollbar,
+#messages::-webkit-scrollbar,
+.contacts-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+#chat-list::-webkit-scrollbar-track,
+#messages::-webkit-scrollbar-track,
+.contacts-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px #b1e0aa;
+  border-radius: 10px;
+}
+
+#chat-list::-webkit-scrollbar-thumb,
+#messages::-webkit-scrollbar-thumb,
+.contacts-list::-webkit-scrollbar-thumb {
+  background-color: #5f9262;
+  border-radius: 10px;
+}
+/* Скролл */
+/* =========================== */
+
+/* ===============================
+Шапка
+=============================== */
+
+#header {
+  width: 100%;
+  height: 60px;
+  background: rgb(161 211 149);
+}
+
+/* =========================== */
+/* Логотип */
+#logo {
+  height: 100%;
+  width: 310px;
+  position: relative;
+  float: left;
+}
+
+#logo img {
+  height: 85%;
+  position: absolute;
+  top: 5px;
+  left: 25px;
+}
+
+#logo span {
+  height: 60px;
+  font-size: 31px;
+  position: absolute;
+  left: 70px;
+  line-height: 60px;
+  color: #077000;
+}
+/* Логотип */
+/* =========================== */
+
+/* =========================== */
+/* Меню */
+#menu {
+  float: right;
+  height: 100%;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #077000;
+  font-size: 20px;
+  line-height: 60px;
+  display: block;
+  float: left;
+  padding: 0px 20px;
+}
+
+#menu a:hover {
+  background: #7abc7f;
+  color: #fff;
+}
+
+#menu a:active {
+  background: #5f9262;
+}
+/* Меню */
+/* =========================== */
+
+/* ===============================
+Главный контент
+=============================== */
+
+main {
+  height: calc(100vh - 80px);
+}
+
+#content {
+  max-width: 950px;
+  margin: 0 auto;
+  height: 100%;
+  background: #fff;
+  border: 2px solid #b1e0aa;
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* ===============================
+Боковая панель чатов
+=============================== */
+
+#users {
+  max-width: 300px;
+  border-right: 2px solid #b1e0aa;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+/* =========================== */
+/* Поиск по чатам */
+#search {
+  width: 100%;
+  height: 45px;
+  padding: 10px 10px 0;
+  margin: 0px 0px 10px 0px;
+}
+
+#search button {
+  display: inline-block;
+  height: 100%;
+  width: 30px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#search button:active {
+  color: #5f9262;
+}
+
+#search button img {
+  width: auto;
+  height: 100%;
+}
+
+#search input {
+  float: left;
+  height: 100%;
+  width: 85%;
+  padding: 0px 10px;
+  border: none;
+  border-bottom: 2px solid #5f9262;
+  outline: none;
+  transition: all 0.5s;
+  border-radius: 5px;
+  margin: 0px 5px 0px 0px;
+  font-size: 16px;
+  color: #5f9262;
+  letter-spacing: 1px;
+  font-weight: bolder;
+}
+
+#search input::placeholder,
+textarea::placeholder {
+  transition: all 0.5s;
+  font-size: 16px;
+  color: #5f9262;
+}
+#search input:focus::placeholder,
+textarea:focus::placeholder {
+  color: transparent;
+}
+/* Поиск по чатам */
+/* =========================== */
+
+/* Непосредственно сами чаты */
+#chat-list {
+  padding: 0 10px;
+  height: calc(100% - 55px);
+  overflow-y: auto;
+}
+
+#chat-list ul {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat-list ul li {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  max-height: 75px;
+  margin: 3px 0px;
+  padding: 5px 3px;
+  border-radius: 5px;
+}
+#chat-list ul li .avatar {
+  flex: 0 0 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #fff;
+  min-height: 61px;
+  min-width: 61px;
+}
+
+#chat-list ul li .avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#chat-list ul li #infos-chat {
+  flex-grow: 1;
+}
+
+#chat-list .time {
+  flex: 0 0 35px;
+  height: 60px;
+  padding: 3px 0px 0px 0px;
+}
+
+#infos-chat {
+  padding: 3px 10px;
+  flex-grow: 1;
+}
+
+#infos-chat h2 {
+  font-weight: bold;
+  margin: 0px 0px 10px 0px;
+  font-size: 15px;
+}
+
+#chat-list #infos-chat p {
+  width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#chat-list a {
+  color: #000;
+}
+
+.active-chat {
+  background: #5f9262;
+  color: #fff;
+  border: 1px solid #7abc7f;
+}
+
+.active-chat a {
+  color: #fff;
+}
+.active-chat h2,
+.active-chat p {
+  color: #fff;
+}
+/* Непосредственно сами чаты */
+/* =========================== */
+
+/* ===============================
+Переписка с пользователем
+=============================== */
+
+#message-story {
+  float: right;
+  display: flex;
+  flex-direction: column;
+  width: calc(950px - 304px);
+  height: 100%;
+}
+
+#messages {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 0px 0px 10px 0px;
+}
+
+#message-story .avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin: 0px 10px 0px 0px;
+}
+
+#messages .avatar img {
+  width: 100%;
+}
+
+#message-story li {
+  position: relative;
+  padding: 10px;
+}
+
+#message-story li #infos-chat p {
+  width: 90%;
+}
+
+#message-story .time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* ===============================
+Форма для отправки сообщения
+=============================== */
+
+#send-form {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #7abc7f;
+  flex-basis: 130px;
+}
+#send-form #text-message {
+  width: 100%;
+  height: 70px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: arial, serif;
+  border: 1px solid #077000;
+  border-radius: 5px;
+  transition: 1s;
+  margin-bottom: 5px;
+}
+
+.main-form {
+  flex-grow: 1;
+}
+
+.main-form input {
+  float: right;
+}
+
+#send-form #text-message:focus {
+  -webkit-box-shadow: 0px 0px 10px -2px #5f9262;
+  -moz-box-shadow: 0px 0px 10px -2px #5f9262;
+  box-shadow: 0px 0px 10px -2px #5f9262;
+}
+
+#send-form button {
+  padding: 7px 25px;
+  border-radius: 5px;
+  border: 1px solid #077000;
+  background: #b1e0aa;
+  float: left;
+  transition: 0.5s;
+}
+
+#send-form button:hover {
+  background: #5f9262;
+}
+
+#send-form button:active {
+  transition: none;
+  background: #077000;
+}
+
+#send-form button img {
+  height: 15px;
+  margin: 0px 5px 0px 0px;
+}
+
+#send-form .avatar {
+  flex: 0 0 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #fff;
+}
+
+#send-form .avatar:last-child {
+  margin: 0px 0px 0px 10px;
+}
+
+#send-form .avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===============================
+Стили для моладьных окон
+=============================== */
+
+.modal {
+  width: 400px;
+  min-height: 330px;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 5px;
+  border: 2px solid #077000;
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 200px);
+  display: none;
+  z-index: 2;
+}
+.baground {
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 17px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #077000;
+  font-size: 15px;
+}
+
+/* =========================== */
+/* Модальное окно с контактами */
+.contacts-list {
+  overflow-y: auto;
+  height: 275px;
+  margin-top: 20px;
+  padding: 0 5px 0 0;
+}
+.contacts-list a{
+  color: #000;
+}
+
+#contacts-modal ul {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+#contacts-modal ul li {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  max-height: 75px;
+  margin: 0px 0px 3px;
+  padding: 2px 3px 5px;
+  border-bottom: 1px solid #7abc7f;
+}
+
+#contacts-modal ul li:last-child {
+  border-bottom: none;
+  margin: 0px;
+}
+
+#contacts-modal ul li .avatar {
+  flex: 0 0 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #fff;
+}
+
+#contacts-modal ul li .avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Модальное окно с контактами */
+/* =========================== */
+
+/* =========================== */
+/* Модальное окно для входа */
+#log-in-modal {
+  min-height: 260px;
+}
+#sign-up-modal {
+  min-height: 340px;
+  top: 120px;
+}
+
+#log-in-form,
+#sign-up-form {
+  margin-top: 20px;
+  height: calc(100% - 40px);
+}
+
+#sign-up-modal > p,
+#log-in-modal > p{
+  color: #077000;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#log-in-form,
+#sign-up-form {
+  margin-top: 20px;
+}
+
+#log-in-form label,
+#sign-up-form label {
+  display: inline-block;
+  font-size: 15px;
+  color: #077000;
+  font-weight: bold;
+  margin: 0px 0px 7px 0px;
+}
+
+#log-in-form input,
+#sign-up-form input {
+  display: block;
+  width: 100%;
+  margin: 0 auto 25px;
+  padding: 8px 10px;
+  border: 1px solid #5f9262;
+  border-radius: 5px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #077000;
+  transition: 1s;
+}
+
+#log-in-form input::placeholder,
+#sign-up-form input::placeholder {
+  transition: 0.5s;
+  color: #5f926370;
+}
+
+#log-in-form input:focus,
+#sign-up-form input:focus {
+  -webkit-box-shadow: 0px 0px 10px -2px #5f9262;
+  -moz-box-shadow: 0px 0px 10px -2px #5f9262;
+  box-shadow: 0px 0px 10px -2px #5f9262;
+}
+
+#log-in-form input:focus::placeholder,
+#sign-up-form input:focus::placeholder {
+  color: transparent;
+}
+
+.modal button {
+  padding: 7px 25px;
+  border-radius: 5px;
+  border: 1px solid #077000;
+  background: #b1e0aa;
+  float: right;
+  transition: 0.5s;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.modal button:hover {
+  background: #5f9262;
+  color: #fff;
+}
+
+.modal button:active {
+  transition: none;
+  background: #077000;
+}
+
+#log-in-form a,
+#sign-up-form a {
+  color: #5f9262;
+  font-size: 15px;
+  line-height: 35px;
+  transition: 0.5s;
+}
+
+#log-in-form a:hover,
+#sign-up-form a:hover {
+  color: #077000;
+  line-height: 30px;
+}
+
+#sign-up-form p {
+  display: none;
+  margin-bottom: 12px;
+  padding: 10px 10px;
+  border: 1px solid #077000;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #077000;
+  background: #7abc7f;
+  transition: 1s;
+}
+/* Модальное окно для входа */
+/* =========================== */
+
+/* =========================== */
+/* Модальное окно для вывода информации о пользователе */
+.user-modal {
+  padding: 0;
+
+}
+
+.inner-userid {
+  height: 100%;
+}
+
+.user-modal .close a {
+  color: #fff;
+}
+
+.user-modal .header-user {
+  color: #fff;
+  font-size: 15px;
+  background: #5f9262;
+  padding: 10px 26px;
+}
+
+.user-modal .header-user img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: inline-block;
+}
+
+.user-modal .header-user div {
+  display: inline-block;
+  padding: 18px 5px;
+}
+.user-modal .header-user div h3 {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 0px 8px 0px;
+}
+
+.main-info {
+  height: 100%;
+  padding: 20px 26px 10px;
+}
+
+.main-info li {
+  padding: 10px 0;
+  border-bottom: 1px solid #5f9262;
+}
+
+.main-info li:last-child {
+  border-bottom: none;
+}
+
+.main-info li p {
+  margin: 0px 0px 5px 0px;
+}
+
+.main-info li p:last-of-type {
+  color: #077000;
+}
+
+.main-info li p a {
+  color: #077000;
+}
+/* Модальное окно для вывода информации о пользователе */
+/* =========================== */
+
+.chose-contact {
+  color: #077000;
+  text-align: center;
+  margin-top: 235px;
+}
