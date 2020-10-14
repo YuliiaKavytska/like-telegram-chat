@@ -29,7 +29,7 @@ function deleteFriend(friend){
 var form = document.querySelector("#send-message");
 
 form.onsubmit = function(event){
-	
+
 	var sender = form.querySelector("input[name='user_id']");
 	var recipient = form.querySelector("input[name='user_id_2']");
 	var textMessage = form.querySelector("textarea");
@@ -48,3 +48,18 @@ form.onsubmit = function(event){
 	messageStory.innerHTML = sendQuery.response;
 	messageStory.scrollTop = messages.scrollHeight;
 }
+
+// ===============================================
+
+// var search = document.querySelector("#search");
+
+// function searchUserMessage(){
+// 	var find = search.querySelector("input['find']");
+
+// 	var data = "find=" + find.value;
+
+// 	var findRequest = new XMLHttpRequest();
+// 		 findRequest.open("POST", form.action, false);
+// 		 findRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+// 		 findRequest.send()
+// }

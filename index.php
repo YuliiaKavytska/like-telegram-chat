@@ -29,10 +29,10 @@
 			<aside id="users">
 					<!-- Чтобы осуществить поиск по чатам нужно нашу кнопку и поле обернуть в форму.
 					форме мы задаем действие на этой же странице, а метод ГЕТ -->
-					<form id="search" action="index.php" method="GET"> 
+					<form id="search" action="http://chat.local/find-user-message.php" method="POST"> 
 					<!-- Нейм - это то, что передасться в гет запрос. -->
 						<input type="text" name="find" placeholder="Search..."> 
-						<button>
+						<button type="submit" name="search-btn">
 							<img src="images/search.png" alt="search">
 						</button>
 					</form>
