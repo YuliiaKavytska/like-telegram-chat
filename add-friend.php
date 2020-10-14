@@ -12,7 +12,8 @@
 	if(isset($_GET["user_id"])){
 		$addSql = "INSERT INTO `action-friend` (you, friend) VALUES ('" . $_COOKIE["user_id"] . "', '" . $_GET["user_id"] . "')";
 		if(mysqli_query($connect, $addSql)){
-			header("Location: /");
+			// header("Location: /");
+			include "modules/friend-list.php"; 
 		}else {
 			mysqli_error(mysqli_query($connect, $addSql));
 		}

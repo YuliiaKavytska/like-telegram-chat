@@ -379,8 +379,8 @@ textarea:focus::placeholder {
 #message-story .avatar {
   border-radius: 50%;
   overflow: hidden;
-  width: 60px;
-  height: 60px;
+  width: 61px;
+  height: 61px;
   float: left;
   margin: 0px 10px 0px 0px;
 }
@@ -471,6 +471,8 @@ textarea:focus::placeholder {
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid #fff;
+  min-height: 61px;
+  min-width: 61px;
 }
 
 #send-form .avatar:last-child {
@@ -561,6 +563,8 @@ textarea:focus::placeholder {
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid #fff;
+  min-height: 61px;
+  min-width: 61px;
 }
 
 #contacts-modal ul li .avatar img {
