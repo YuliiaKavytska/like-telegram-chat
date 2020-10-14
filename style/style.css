@@ -771,3 +771,7 @@ textarea:focus::placeholder {
   text-align: center;
   margin-top: 235px;
 }
+
+.pointer{
+  cursor: pointer;
+}

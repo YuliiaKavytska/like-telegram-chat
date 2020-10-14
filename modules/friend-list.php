@@ -19,11 +19,11 @@
 			echo "<div id=\"infos-chat\">";
 				echo "<h2>" . $person["name"] . "</h2>";
 				if($quanitity == 0){
-					echo "<div data-href='http://chat.local/add-friend.php?user_id=" . $person["id"] . "' onclick='addFriend(this)'>Добавить в друзья +</div>";
+					echo "<div class='pointer' data-href='http://chat.local/add-friend.php?user_id=" . $person["id"] . "' onclick='addFriend(this)'>Добавить в друзья +</div>";
 				}
 			echo "</div>";
 			if($quanitity > 0){
-				echo "<div data-href='http://chat.local/delete-friend.php?user_id=" . $person["id"] . "' onclick='deleteFriend(this)'>Х</div>";
+				echo "<div class='pointer' data-href='http://chat.local/delete-friend.php?user_id=" . $person["id"] . "' onclick='deleteFriend(this)'>Х</div>";
 			}else {
 				
 			}
