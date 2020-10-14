@@ -24,3 +24,27 @@ function deleteFriend(friend){
 	deleteQuery.send();
 	friendList.innerHTML = deleteQuery.response;
 }
+// ===============================================
+
+var form = document.querySelector("#send-message");
+
+form.onsubmit = function(event){
+	
+	var sender = form.querySelector("input[name='user_id']");
+	var recipient = form.querySelector("input[name='user_id_2']");
+	var textMessage = form.querySelector("textarea");
+
+	var data = "send_message=1" +
+				  "&user_id="      + sender.value	 +
+				  "&user_id_2="    + recipient.value +
+				  "&text-message="		 + textMessage.value;
+
+	var sendQuery = new XMLHttpRequest();
+		 sendQuery.open("POST", form.action, false);
+		 sendQuery.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		 sendQuery.send(data);
+	console.dir(sendQuery);
+	var messageStory = document.querySelector("#messages");
+	messageStory.innerHTML = sendQuery.response;
+	messageStory.scrollTop = messages.scrollHeight;
+}

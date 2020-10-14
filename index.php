@@ -6,13 +6,6 @@
 		header("Location: log-in.php");
 	}
 
-	if(isset($_POST["send_message"])){
-	$sqlSendMessage = "INSERT INTO messages (user_id, user_id_2, message) VALUES" .
-		"('" . $_POST["user_id"] . 
-		"', '" . $_POST["user_id_2"] . "', 
-		'" . $_POST["text-message"] . "')";
-		mysqli_query($connect, $sqlSendMessage);
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +53,7 @@
 						<img src="images/05.png" alt="user">
 					</div>
 					
-					<form method="POST" class="main-form">
+					<form method="POST" action="http://chat.local/send-message.php" class="main-form" id="send-message">
 						<textarea name="text-message" id="text-message" placeholder="Message..."></textarea>
 						<!-- Это мы отправляем в базу от кого сообщение (тоесть от нас) -->
 						<input type="hidden" name="user_id" value="<?php echo $_COOKIE["user_id"]; ?>">

@@ -392,6 +392,7 @@ textarea:focus::placeholder {
 #message-story li {
   position: relative;
   padding: 10px;
+  min-height: 61px;
 }
 
 #message-story li #infos-chat p {

@@ -1,13 +1,18 @@
 <!-- Это файл для вывода чатов -->
 <!-- Создаем блок с сообщениями -->
 
-<div id="messages"> 
+<div id="messages "> 
 	<ul>
 		<?php 
-			if(isset($_GET["user_chat"])){
+			if(isset($_GET["user_chat"]) || isset($recipientUserId)){
+				if(isset($_GET["user_chat"])){
+					$user_id = $_GET["user_chat"];
+				}else{
+					$user_id = $recipientUserId;
+				}
 				$sqlMessage = "SELECT * FROM messages WHERE " .
-				"(user_id = " . $_GET["user_chat"] . " AND user_id_2 = " . $_COOKIE["user_id"] . ") OR " . 
-				"(user_id = " . $_COOKIE["user_id"] . " AND user_id_2 = " . $_GET["user_chat"] . ")";
+				"(user_id = " . $user_id . " AND user_id_2 = " . $_COOKIE["user_id"] . ") OR " . 
+				"(user_id = " . $_COOKIE["user_id"] . " AND user_id_2 = " . $user_id . ")";
 				$resultMessage = mysqli_query($connect, $sqlMessage);
 				$quanityMessages = mysqli_num_rows($resultMessage);
 				if($quanityMessages != 0){
