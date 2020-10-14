@@ -32,7 +32,7 @@
 					<form id="search" action="http://chat.local/find-user-message.php" method="POST"> 
 					<!-- Нейм - это то, что передасться в гет запрос. -->
 						<input type="text" name="find" placeholder="Search..."> 
-						<button type="submit" name="search-btn">
+						<button type="submit" name="search-btn" >
 							<img src="images/search.png" alt="search">
 						</button>
 					</form>

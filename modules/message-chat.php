@@ -1,7 +1,7 @@
 <!-- Это файл для вывода чатов -->
 <!-- Создаем блок с сообщениями -->
 
-<div id="messages "> 
+<div id="messages"> 
 	<ul>
 		<?php 
 			if(isset($_GET["user_chat"]) || isset($recipientUserId)){
