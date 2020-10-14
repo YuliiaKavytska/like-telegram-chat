@@ -37,31 +37,7 @@
 				}else {
 					echo "<h2 class=\"chose-contact\">Нет сообщений.</h2>";
 				}
-			}elseif(isset($_GET["find"])){
-				$findMessage = "SELECT * FROM messages WHERE message LIKE '%" . $_GET["find"] . "%'";
-				$resultFindMessage = mysqli_query($connect, $findMessage);
-				$quantityFind = mysqli_num_rows($resultFindMessage);
-				if($quantityFind > 0){
-					for($i = 0; $i < $quantityFind; $i++){
-						$foundMessage = mysqli_fetch_assoc($resultFindMessage);
-						echo "<li>";
-						$findUserSql = "SELECT * FROM contacts WHERE id = " . $foundMessage["user_id"];
-						$findResult = mysqli_query($connect, $findUserSql);
-						$foundUser = mysqli_fetch_assoc($findResult);
-						echo "<a href='index.php?user=" . $message["user_id"] . "'><div class=\"avatar\">;
-									<img src='" . $foundUser["avatar"] . "' alt=\"user\">
-								</div></a>";
-						echo "<div id=\"infos-chat\">";
-							echo "<h2>" . $foundUser["name"] . "</h2>"; //Помещаем имя пользователя с полученого массива персоны
-							echo "<p>" . $foundMessage["message"] . "</p>"; //Помещаем сообщение с истории
-						echo "</div>";
-						echo "<div class=\"time\">" . $foundMessage["time"] . "</div>";
-						echo "</li>";
-					}
-				}else{
-					echo "<h2 class=\"chose-contact\">Сообщений не найдено.</h2>";
-				}
-			}else{ //Запросов ГЕТ не существует. значит чат еще нужно выбрать
+			}}else{ //Запросов ГЕТ не существует. значит чат еще нужно выбрать
 				echo "<h2 class=\"chose-contact\">Чат не выбран. Выберете пользователя со списка контактов...</h2>";
 			}
 		?>
